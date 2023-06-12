@@ -3,6 +3,8 @@ const app = express();
 require('./db/connection');
 const User = require('./modal/userSchema');
 
+app.use((require('./router/auth')));
+
 const middlerware = (req, res, next) => {
     console.log(`HI from middleWare`);
     next();

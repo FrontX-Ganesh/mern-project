@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+require('./db/connection');
+const User = require('./modal/userSchema');
 
 const middlerware = (req, res, next) => {
     console.log(`HI from middleWare`);

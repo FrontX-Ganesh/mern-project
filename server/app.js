@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 require('./db/connection');
+app.use(express.json());
 const User = require('./modal/userSchema');
 
 app.use((require('./router/auth')));

@@ -5,4 +5,9 @@ router.get('/', (req, res) => {
     res.send(`Hello from server router auth.js`);
 });
 
+router.post('/register', (req, res) => {
+    console.log(req.body);
+    res.json({ message: req.body });
+});
+
 module.exports = router;

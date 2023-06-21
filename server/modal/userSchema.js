@@ -19,9 +19,6 @@ const userSchema = new mongoose.Schema({
     },
 })
 
-// mern_project = database
-// users = collection
-
 const User = mongoose.model('USERS', userSchema);
 
 module.exports = User;3

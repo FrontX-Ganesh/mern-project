@@ -24,4 +24,28 @@ router.post('/register', (req, res) => {
     })
 });
 
+router.post('/login', async (req, res) => {
+
+    const{ email, password } = req.body;
+
+    if( !email || !password ){
+        return res.status(422).json({ error: "Invalid crentials." });
+    }
+
+    const emailValue = await User.findOne({ email: email })
+
+    if(emailValue){
+        const userLogin = await User.findOne({ email: email, password: password });
+        console.log(userLogin);
+        if(userLogin){
+            return res.status(200).json({ success: "User login successfully." });
+        }else{
+            return res.status(422).json({ error: "Anything missing in data." });
+        }
+    }else{
+        return res.status(422).json({ error: "Invalid crentials." });
+    }
+    
+});
+
 module.exports = router;
